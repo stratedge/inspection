@@ -24,8 +24,8 @@
     "require": {
         "symfony/finder": "^2.7",
         "symfony/console": "^2.7",
-        "phpdocumentor/reflection-docblock": "dev-master",
-        "phpdocumentor/reflection-common": "1.0.x-dev"
+        "phpdocumentor/reflection-common": "1.0.x-dev",
+        "phpdocumentor/reflection-docblock": "dev-master"
     },
     "autoload": {
         "psr-4": {
