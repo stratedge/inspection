@@ -2,6 +2,7 @@
 
 namespace Stratedge\Inspection\Console\Commands;
 
+use Exception;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\DocBlockFactory;
 use Symfony\Component\Console\Command\Command as BaseCommand;
@@ -85,7 +86,11 @@ class Parse extends BaseCommand
 
             foreach ($tokens as $token) {
                 if ($token[0] === T_DOC_COMMENT) {
-                    $docblock = $factory->create($token[1]);
+                    try {
+                        $docblock = $factory->create($token[1]);
+                    } catch (Exception $e) {
+                        continue;
+                    }
 
                     if ($this->hasApiTags($docblock) == false) {
                         continue;
@@ -106,7 +111,6 @@ class Parse extends BaseCommand
         }
 
         $data = [];
-
 
         foreach ($this->nodes as $node) {
             $data[] = $this->buildNodeData($node);
@@ -162,9 +166,9 @@ class Parse extends BaseCommand
                 'minor' => 0,
                 'patch' => 0
             ],
-            'param' => [],
-            'header' => [],
-            'return' => [],
+            'params' => [],
+            'headers' => [],
+            'returns' => [],
             'throws' => []
         ];
 
@@ -203,13 +207,13 @@ class Parse extends BaseCommand
                     $data['version'] = $tag->getVersion();
                     break;
                 case 'api-param':
-                    $data['param'][] = $tag->getParam();
+                    $data['params'][] = $tag->getParam();
                     break;
                 case 'api-header':
-                    $data['header'][] = $tag->getParam();
+                    $data['headers'][] = $tag->getParam();
                     break;
                 case 'api-return':
-                    $data['return'][] = $tag->getReturn();
+                    $data['returns'][] = $tag->getReturn();
                     break;
                 case 'api-throws':
                     $data['throws'][] = $tag->getThrows();
