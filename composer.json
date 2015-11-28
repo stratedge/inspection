@@ -1,0 +1,42 @@
+{
+    "name": "stratedge/inspection",
+    "description": "A command-line-utility for generating a data file from docblocks with @api-* tags",
+    "type": "library",
+    "keywords": [
+        "documentation",
+        "api",
+        "docblock",
+        "apidoc"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jarret Byrne",
+            "email": "jarret@solvomedia.com",
+            "homepage": "http://jarretbyrne.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/stratedge/inspection/issues",
+        "source": "https://github.com/stratedge/inspection"
+    },
+    "require": {
+        "symfony/finder": "^2.7",
+        "symfony/console": "^2.7",
+        "phpdocumentor/reflection-docblock": "dev-master",
+        "phpdocumentor/reflection-common": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stratedge\\Inspection\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/runcard"
+    ],
+    "require-dev": {
+        "raveren/kint": "^1.0"
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,6 @@
+composer.lock
+*.sublime-*
+inspection.yml
+inspection_data.js
+vendor/
+play/
