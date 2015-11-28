@@ -33,7 +33,7 @@
         }
     },
     "bin": [
-        "bin/runcard"
+        "bin/inspection"
     ],
     "require-dev": {
         "raveren/kint": "^1.0"
