@@ -119,9 +119,9 @@ class ApiParam extends BaseTag implements StaticMethod
     public function getParam()
     {
         return [
+            'field' => $this->field,
             'group' => $this->group,
             'type' => $this->type,
-            'field' => $this->field,
             'size' => $this->size,
             'optional' => $this->optional,
             'default_value' => $this->default_value,

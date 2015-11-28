@@ -74,9 +74,9 @@ final class ApiReturn extends BaseTag implements StaticMethod
     public function getReturn()
     {
         return [
+            'field' => $this->field,
             'group' => $this->group,
             'type' => $this->type,
-            'field' => $this->field,
             'description' => (string) $this->description
         ];
     }
