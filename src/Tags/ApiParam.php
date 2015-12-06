@@ -54,13 +54,16 @@ class ApiParam extends BaseTag implements StaticMethod
         $default_value = null;
         $description = null;
 
-        $parts = preg_split('/(\s+)/Su', $body, 4, PREG_SPLIT_DELIM_CAPTURE);
-
         //Is the first part our group?
-        if (preg_match('/\([^)]+\)/', $parts[0]) !== 0) {
-            $group = substr(array_shift($parts), 1, -1);
-            array_shift($parts);
+        if (preg_match('/^\([^)]*\)/', $body) !== 0) {
+            $parts = preg_split('/\)\s*/', $body, 2);
+            $group = substr($parts[0], 1);
+            $body = $parts[1];
         }
+
+        $parts = preg_split('/(\s+)/Su', $body, null, PREG_SPLIT_DELIM_CAPTURE);
+
+        
 
         //Is the first part our type?
         if (preg_match('/{([^{]+)(?:{([^}]+)})?}/', $parts[0], $matches) !== 0) {
