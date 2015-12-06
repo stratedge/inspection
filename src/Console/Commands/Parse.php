@@ -212,7 +212,7 @@ class Parse extends BaseCommand
                     if (is_null($tag->getGroup())) {
                         $data['params']['Default'][] = $tag->getParam();
                     } else {
-                        $data['params'][$tag->getGroup()] = $tag->getParam();
+                        $data['params'][$tag->getGroup()][] = $tag->getParam();
                     }
                     break;
                 case 'api-header':
