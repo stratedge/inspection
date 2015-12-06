@@ -166,7 +166,9 @@ class Parse extends BaseCommand
                 'minor' => 0,
                 'patch' => 0
             ],
-            'params' => [],
+            'params' => [
+                'Default' => []
+            ],
             'headers' => [],
             'returns' => [],
             'throws' => []
@@ -207,7 +209,11 @@ class Parse extends BaseCommand
                     $data['version'] = $tag->getVersion();
                     break;
                 case 'api-param':
-                    $data['params'][] = $tag->getParam();
+                    if (is_null($tag->getGroup())) {
+                        $data['params']['Default'][] = $tag->getParam();
+                    } else {
+                        $data['params'][$tag->getGroup()] = $tag->getParam();
+                    }
                     break;
                 case 'api-header':
                     $data['headers'][] = $tag->getParam();

@@ -131,4 +131,10 @@ class ApiParam extends BaseTag implements StaticMethod
             'description' => (string) $this->description
         ];
     }
+
+
+    public function getGroup()
+    {
+        return $this->group;
+    }
 }
