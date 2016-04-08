@@ -22,10 +22,9 @@
         "source": "https://github.com/stratedge/inspection"
     },
     "require": {
-        "symfony/finder": "^2.7",
-        "symfony/console": "^2.7",
-        "phpdocumentor/reflection-common": "1.0.x-dev",
-        "phpdocumentor/reflection-docblock": "dev-master"
+        "symfony/finder": "^3.0",
+        "symfony/console": "^3.0",
+        "phpdocumentor/reflection-docblock": "^3.0"
     },
     "autoload": {
         "psr-4": {
